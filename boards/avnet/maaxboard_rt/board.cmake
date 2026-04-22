@@ -1,0 +1,26 @@
+#
+# Copyright (c) 2021, NXP
+# Copyright (c) 2024, Avnet
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+if(CONFIG_SOC_MIMXRT1176_CM7 OR CONFIG_SECOND_CORE_MCUX)
+  board_runner_args(pyocd "--target=mimxrt1170_cm7")
+  board_runner_args(jlink "--device=MIMXRT1176xxxA_M7" "--reset-after-load")
+  board_runner_args(linkserver "--device=MIMXRT1176xxxxx:MAAX_MIMXRT1170-EVK-CM7-ONLY")
+  board_runner_args(linkserver "--core=cm7")
+elseif(CONFIG_SOC_MIMXRT1176_CM4)
+  board_runner_args(pyocd "--target=mimxrt1170_cm4")
+  # Note: Please use JLINK above V7.50 (only supports running cm4 image when
+  # debugging because default boot core on board is cm7)
+  board_runner_args(jlink "--device=MIMXRT1176xxxA_M4")
+  board_runner_args(linkserver "--device=MIMXRT1176xxxxx:MIMXRT1170-EVK")
+  board_runner_args(linkserver "--core=cm4")
+endif()
+
+#include(${ZEPHYR_BASE}/modules/hal/nxp)
+
+include(${ZEPHYR_BASE}/boards/common/jlink.board.cmake)
+include(${ZEPHYR_BASE}/boards/common/pyocd.board.cmake)
+include(${ZEPHYR_BASE}/boards/common/linkserver.board.cmake)

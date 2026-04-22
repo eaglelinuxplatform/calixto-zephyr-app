@@ -1,0 +1,32 @@
+#
+# Copyright (c) 2021, NXP
+# Copyright (c) 2024, Avnet
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+identifier: maax_imxrt1176/mimxrt1176/cm7
+name: Avnet MaaXBoard RT1176 CM7
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 256
+flash: 32768
+supported:
+  - adc
+  - counter
+  - can
+  - dma
+  - gpio
+  - hwinfo
+  - i2c
+  - spi
+  - usb_device
+  - watchdog
+  - netif:eth
+  - pwm
+  - usbd
+vendor: nxp

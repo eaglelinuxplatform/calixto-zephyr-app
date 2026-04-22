@@ -1,0 +1,5 @@
+board:
+  name: maax_imxrt1176
+  vendor: nxp
+  socs:
+    - name: mimxrt1176
