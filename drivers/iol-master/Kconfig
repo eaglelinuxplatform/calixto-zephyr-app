@@ -1,0 +1,5 @@
+config CCE4511_IOL_PL
+    bool "CCE4511 IO-Link Master PHY support"
+    depends on SPI && GPIO
+     help
+      Enables support for the CCE4511 IO-Link Master PHY.

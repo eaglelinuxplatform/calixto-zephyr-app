@@ -1,0 +1,13 @@
+description: Renesas CCE4511 IO-Link Master PHY
+
+compatible: "renesas,cce4511"
+
+include: spi-device.yaml
+
+properties:
+  irq-gpios:
+    type: phandle-array
+    required: true
+    description: >
+      GPIO pin connected to the CCE4511 IRQ output.
+      Active-low edge-triggered interrupt line.

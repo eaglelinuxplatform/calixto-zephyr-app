@@ -1,0 +1,1 @@
+add_subdirectory_ifdef(CONFIG_CCE4511_IOL_PL iol-master)

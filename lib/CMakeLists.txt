@@ -1,0 +1,1 @@
+add_subdirectory_ifdef(CONFIG_IOL_MASTER iol-master)

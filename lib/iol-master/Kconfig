@@ -1,0 +1,39 @@
+menu "IO-Link Master Stack"
+
+config IOL_MASTER
+    bool "IO-Link Master stack support"
+    depends on CCE4511_IOL_PL
+    help
+      Enables the IO-Link Master middleware
+      with CCE4511 PHY IC.
+
+if IOL_MASTER
+
+config IOL_MASTER_NUM_CHANNELS
+    int "Number of IO-Link channels"
+    default 4
+    range 1 4
+
+config IOL_MASTER_STACK_SIZE
+    int "IO-Link task stack size (bytes)"
+    default 2048
+
+config IOL_MASTER_TASK_PRIORITY
+    int "IO-Link Master thread task priority"
+    default 4
+
+config IOL_DL_STACK_SIZE
+    int "IO-Link DL task stack size (bytes)"
+    default 1024
+
+config IOL_DL_TASK_PRIORITY
+    int "IO-Link DL thread task priority"
+    default 5
+
+module = IOL_MASTER
+module-str = IO-Link Master
+source "subsys/logging/Kconfig.template.log_config"
+
+endif
+
+endmenu
