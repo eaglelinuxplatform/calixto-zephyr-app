@@ -21,7 +21,7 @@
  * Definitions
  ******************************************************************************/
 /*! @brief The board name */
-#define BOARD_NAME "MIMXRT1170-EVK"
+#define BOARD_NAME "MAAX_IMXRT1176"
 #ifndef DEBUG_CONSOLE_UART_INDEX
 #define DEBUG_CONSOLE_UART_INDEX 1
 #endif

@@ -29,10 +29,10 @@ const uint32_t xmcd_data[] = {
     0xC010000D,
     /* Magic_number = 0xA1, Version = 1, Config_option: Simplified, SDRAM clock: 198MHz */
     0xC60001A1,
-    /* SDRAM CS0 size: 64MBytes */
-    0x00010000,
+    /* SDRAM CS0 size: 32MBytes */
+    0x00008000,
     /* Port_size: 32-bit */
-    0x02};
+    0x01};
 
 #endif /* XIP_BOOT_HEADER_XMCD_ENABLE */
 #endif /* XIP_BOOT_HEADER_ENABLE */

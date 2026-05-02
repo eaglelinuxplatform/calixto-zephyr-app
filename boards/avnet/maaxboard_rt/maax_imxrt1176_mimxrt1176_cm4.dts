@@ -15,24 +15,30 @@
 	compatible = "nxp,mimxrt1176";
 
 	chosen {
+	zephyr,sram = &sram1;
+	zephyr,console = &lpuart7;
+	zephyr,shell-uart = &lpuart7;
+	zephyr,canbus = &flexcan3;
     zephyr,flash-controller = &S26KS256;
-    zephyr,flash = &sram0;
-    zephyr,sram = &sram1;
-    zephyr,console = &lpuart1;
-    zephyr,shell-uart = &lpuart1;
-    zephyr,canbus = &flexcan2;
+    zephyr,flash = &sram0; 
     nxp,m4-partition = &slot1_partition;
     zephyr,ipc = &mailbox_b;
 	};
 
 	sdram0: memory@80000000 {
-		/* Winbond W9825G6KH-5I */
 		device_type = "memory";
-		reg = <0x80000000 DT_SIZE_M(64)>;
+		reg = <0x80000000 DT_SIZE_M(32)>;
 	};
 };
 
-&lpuart1 {
+&flexcan3 {
+	status = "okay";
+	can-transceiver {
+		max-bitrate = <5000000>; 
+	};
+};
+
+&lpuart7 {
 	status = "okay";
 	current-speed = <115200>;
 };
@@ -49,14 +55,6 @@
 };
 
 &systick {
-	status = "okay";
-};
-
-&sai1 {
-	status = "okay";
-};
-
-&edma_lpsr0 {
 	status = "okay";
 };
 

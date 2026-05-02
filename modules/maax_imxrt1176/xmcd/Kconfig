@@ -3,8 +3,8 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-# driver_xmcd_evkmimxrt1170
-config MCUX_USE_driver_xmcd_evkmimxrt1170
+# driver_xmcd_maax_imxrt1176
+config MCUX_USE_driver_xmcd_maax_imxrt1176
     bool "XMCD Driver"
     select MCUX_USE_driver_common
     help

@@ -13,6 +13,7 @@ list(APPEND DTS_ROOT
 
 set(BOARD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 
+
 if(CONFIG_NXP_IMXRT_BOOT_HEADER)
   zephyr_library()
   if(NOT DEFINED CONFIG_BOARD_MAAX_IMXRT1176_MIMXRT1176_CM7 AND
@@ -22,22 +23,22 @@ if(CONFIG_NXP_IMXRT_BOOT_HEADER)
       "update your flash configuration or device configuration data blocks")
   endif()
 
-  #set(RT1170_BOARD_NAME "evkmimxrt1170")
-  set(RT1170_BOARD_NAME "maaximxrt1170")
+  set(RT1170_BOARD_NAME "maax_imxrt1176")
   set(RT1170_BOARD_DIR
-   ${CMAKE_CURRENT_SOURCE_DIR}/../../../modules/boards/maaximxrt1170)
-#C:\Users\Admin\Sanjana\Projects\custom\zephyr-demo\calixto-zephyr-demo\modules\maaximxrt1170\xip
+   ${CMAKE_CURRENT_SOURCE_DIR}/../../../modules/maax_imxrt1176)
 
-  if(CONFIG_BOOT_FLEXSPI_NOR OR CONFIG_BOOT_FLEXSPI_HYPER)
+  if(CONFIG_BOOT_FLEXSPI_NOR)
     zephyr_compile_definitions(XIP_BOOT_HEADER_ENABLE=1)
     zephyr_compile_definitions(BOARD_FLASH_SIZE=CONFIG_FLASH_SIZE*1024)
     zephyr_library_sources(
         ${RT1170_BOARD_DIR}/xip/${RT1170_BOARD_NAME}_flexspi_nor_config.c)
     zephyr_library_include_directories(${RT1170_BOARD_DIR}/xip)
-endif()
+  endif()
 
   if(CONFIG_EXTERNAL_MEM_CONFIG_DATA)
     # External memory configuration data block (XMCD) for SDRAM.
+    message("Including external memory configuration data block (XMCD) for SDRAM")
+
     zephyr_compile_definitions(XIP_BOOT_HEADER_XMCD_ENABLE=1)
     zephyr_library_sources(${RT1170_BOARD_DIR}/xmcd/xmcd.c)
   else()
