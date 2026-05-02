@@ -20,3 +20,5 @@ manifest:
           - mbedtls
           - zcbor
           - littlefs
+          - canopennode
+
