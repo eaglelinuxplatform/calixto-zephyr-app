@@ -1,0 +1,5 @@
+board:
+  name: imxrt1176_som
+  vendor: calixto
+  socs:
+    - name: mimxrt1176

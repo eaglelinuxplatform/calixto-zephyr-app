@@ -1,0 +1,18 @@
+# Copyright 2023 NXP
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+if (MCUX_USE_BOARD_IMXRT1176_SOM_CM4 || MCUX_USE_BOARD_IMXRT1176_SOM_CM7)
+
+config MCUX_BOARD
+    default "imxrt1176_som"
+
+config MCUX_KIT
+    default "imxrt1176_som"
+
+
+#### Board level drivers ####
+rsource "xip/Kconfig"
+rsource "xmcd/Kconfig"
+
+endif
