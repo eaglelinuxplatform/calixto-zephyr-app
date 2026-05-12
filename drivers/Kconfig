@@ -1,1 +1,2 @@
 rsource "iol-master/Kconfig"
+rsource "rs-485/Kconfig"

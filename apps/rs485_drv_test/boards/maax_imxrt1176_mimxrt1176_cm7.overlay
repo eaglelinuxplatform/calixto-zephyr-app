@@ -1,0 +1,21 @@
+&lpuart2 {
+    status = "okay";
+    current-speed = <115200>;   
+
+    rs485_calixto_0: rs485_calixto {
+        compatible = "calixto,rs-485";
+        status = "okay";
+        rs-485-gpio = <&gpio8 27 GPIO_ACTIVE_LOW>;
+    };
+};
+
+&lpuart6 {
+    status = "okay";
+    current-speed = <115200>;   
+
+    rs485_calixto_1: rs485_calixto {
+        compatible = "calixto,rs-485";
+        status = "okay";
+        rs-485-gpio = <&gpio9 30 GPIO_ACTIVE_LOW>;
+    };
+};

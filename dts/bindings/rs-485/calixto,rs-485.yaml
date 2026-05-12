@@ -1,0 +1,14 @@
+description: |
+  RS-485 transceiver binding for Calixto SoC.
+
+compatible: "calixto,rs-485"  
+
+include: uart-device.yaml
+
+properties:
+  rs-485-gpio:
+    description: |
+      GPIO pin used for RS-485 direction control.
+    type: phandle-array
+    required: true
+    specifier-space: gpio
