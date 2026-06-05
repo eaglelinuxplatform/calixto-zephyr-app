@@ -1,2 +1,3 @@
 add_subdirectory_ifdef(CONFIG_CCE4511_IOL_PL iol-master)
 add_subdirectory_ifdef(CONFIG_RS_485 rs-485)
+add_subdirectory_ifdef(CONFIG_ISM ism)

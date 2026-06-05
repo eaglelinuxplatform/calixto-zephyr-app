@@ -1,0 +1,36 @@
+description: |
+  Input Sensing Module (ISM) binding for Zephyr applications.
+
+  Each input sensing channel is represented as a child node
+  under the ISM controller node.
+
+compatible: "calixto,ism"
+
+child-binding:
+  description: Input sensing channel configuration
+
+  properties:
+    gpios:
+      type: phandle-array
+      required: true
+      description: GPIO connected to the input sensing channel.
+
+# examples:
+#   - |
+#     / {
+#         ism {
+#             compatible = "calixto,ism";
+
+#             ism_0 {
+#                 gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+#             };
+
+#             ism_1 {
+#                 gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
+#             };
+
+#             ism_2 {
+#                 gpios = <&gpio3 5 GPIO_ACTIVE_LOW>;
+#             };
+#         };
+#     };

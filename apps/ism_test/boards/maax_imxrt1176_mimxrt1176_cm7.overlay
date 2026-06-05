@@ -1,0 +1,40 @@
+    / {
+        ism {
+            compatible = "calixto,ism";
+
+            ism_0 {
+                gpios = <&gpio9 12 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_1 {
+                gpios = <&gpio9 18 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_2 {
+                gpios = <&gpio8 25 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_3 {
+                gpios = <&gpio9 6 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_4 {
+                gpios = <&gpio2 15 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_5 {
+                gpios = <&gpio8 23 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_6 {
+                gpios = <&gpio8 24 GPIO_ACTIVE_LOW>;
+            };
+
+            ism_7 {
+			    gpios = <&gpio13 0 GPIO_ACTIVE_LOW>;
+            };
+
+        };
+
+
+    };

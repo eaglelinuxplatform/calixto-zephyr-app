@@ -1,0 +1,75 @@
+# Copyright (c) Calixto Systems Pvt Ltd 2026
+# SPDX-License-Identifier: Apache-2.0
+
+config ISM
+    bool "Input Sensing Module (ISM) driver  [Approach A – periodic sampling]"
+    depends on DT_HAS_CALIXTO_ISM_ENABLED && GPIO
+    help
+      Enable the ISM driver using Approach A from the Zephyr debounce blog:
+      periodic GPIO state sampling with a rolling sample buffer.
+
+      A dedicated polling thread wakes every CONFIG_ISM_SAMPLE_PERIOD_MS,
+      reads each GPIO pin, and pushes the result into a circular buffer.
+      A new state is accepted only when CONFIG_ISM_CONSECUTIVE_SAMPLES
+      consecutive identical readings are observed.
+
+      Effective debounce window =
+          CONFIG_ISM_CONSECUTIVE_SAMPLES × CONFIG_ISM_SAMPLE_PERIOD_MS
+
+if ISM
+
+config ISM_INIT_PRIORITY
+    int "ISM device initialization priority"
+    default 90
+    range 0 99
+    help
+      POST_KERNEL init priority. Must be higher (later) than the GPIO
+      controller so that GPIO handles are valid at ISM early-init.
+
+config ISM_THREAD_STACK_SIZE
+    int "ISM polling thread stack size (bytes)"
+    default 1024
+    range 512 8192
+    help
+      Stack size for the ISM polling thread.
+
+config ISM_THREAD_PRIORITY
+    int "ISM polling thread scheduling priority"
+    default 5
+    range -16 14
+    help
+      Scheduling priority for the ISM polling thread.
+
+config ISM_SAMPLE_PERIOD_MS
+    int "GPIO sampling interval (ms)"
+    default 50
+    range 1 500
+    help
+      How often the polling thread wakes and samples all GPIO pins.
+      The blog recommends 10–25 ms for mechanical contacts.
+
+config ISM_CONSECUTIVE_SAMPLES
+    int "Consecutive identical samples required for debounce"
+    default 3
+    range 2 16
+    help
+      Number of consecutive identical GPIO readings required before a
+      state change is confirmed.
+
+      The rule from the Zephyr debounce blog:
+        "If there are X-number of consecutive samples with a changed
+         state, we assume the transition really happened."
+
+      Effective debounce window =
+          CONFIG_ISM_CONSECUTIVE_SAMPLES × CONFIG_ISM_SAMPLE_PERIOD_MS
+
+      Examples:
+        3 × 20 ms = 60 ms   (mechanical switches, push-buttons)
+        2 × 10 ms = 20 ms   (hall-effect / solid-state sensors)
+        5 × 20 ms = 100 ms  (reed switches with heavy bounce)
+
+module = ISM
+module-str = ism
+source "subsys/logging/Kconfig.template.log_config"
+
+endif # ISM
