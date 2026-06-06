@@ -6,7 +6,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 
-#include "drivers/rs-485/rs_485.h"
+#include "drivers/rs_485.h"
 
 LOG_MODULE_REGISTER(rs_485_calixto, CONFIG_RS_485_LOG_LEVEL);
 

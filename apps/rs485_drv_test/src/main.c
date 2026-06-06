@@ -2,7 +2,7 @@
 #include <zephyr/device.h>
 
 #include <zephyr/devicetree.h>
-#include <drivers/rs-485/rs_485.h>
+#include <drivers/rs_485.h>
 
 #define RS485_NODE DT_NODELABEL(rs485_calixto_0)
 #define RS485_NODE1 DT_NODELABEL(rs485_calixto_1)
