@@ -1,0 +1,9 @@
+# Copyright 2022-2023 NXP
+#
+# SPDX-License-Identifier: Apache-2.0
+
+source "share/sysbuild/Kconfig"
+
+config OPENAMP_REMOTE_BOARD
+string
+	default "maax_imxrt1176/mimxrt1176/cm4" if $(BOARD) = "maax_imxrt1176"

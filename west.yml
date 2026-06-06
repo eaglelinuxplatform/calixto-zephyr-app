@@ -21,4 +21,6 @@ manifest:
           - zcbor
           - littlefs
           - canopennode
+          - open-amp
+          - libmetal
 
