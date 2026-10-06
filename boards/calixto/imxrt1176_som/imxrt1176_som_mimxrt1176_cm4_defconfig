@@ -1,5 +1,7 @@
 #
+# Copyright 2026, Calixto Systems Pvt Ltd.
 #
+# SPDX-License-Identifier: Apache-2.0
 #
 
 CONFIG_ARM_MPU=y

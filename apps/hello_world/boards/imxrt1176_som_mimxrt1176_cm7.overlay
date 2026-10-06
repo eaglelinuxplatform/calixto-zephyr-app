@@ -1,0 +1,48 @@
+/*
+ * Copyright 2026 Calixto Systems Pvt Ltd
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+
+ / {
+
+	aliases {
+        led0 = &green_led1;
+    };
+
+	chosen {
+		zephyr,console = &lpuart10;
+		zephyr,shell-uart = &lpuart10;
+	};
+
+	leds {
+        compatible = "gpio-leds";
+        green_led1: led-1 {
+            gpios = <&gpio10 26 GPIO_ACTIVE_LOW>;
+            label = "Status LED-1";
+        };
+    };
+
+};
+
+&pinctrl{
+
+	pinmux_lpuart10: pinmux_lpuart10 {
+		group0 {
+			pinmux = <&iomuxc_gpio_ad_15_lpuart10_tx>,
+				<&iomuxc_gpio_ad_16_lpuart10_rx>;
+			drive-strength = "high";
+			bias-pull-up;
+			slew-rate = "fast";
+		};
+	};
+
+};
+
+&lpuart10 {
+    status = "okay";
+	pinctrl-0 = <&pinmux_lpuart10>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+};

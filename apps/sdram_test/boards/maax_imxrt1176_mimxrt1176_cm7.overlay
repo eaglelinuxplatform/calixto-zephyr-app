@@ -1,6 +1,0 @@
-
-/ {
-chosen {
-    zephyr,sram = &dtcm;
-};
-};

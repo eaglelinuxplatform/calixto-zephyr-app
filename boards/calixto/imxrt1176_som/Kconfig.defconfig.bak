@@ -1,7 +1,5 @@
+
 #
-# Copyright 2026, Calixto Systems Pvt Ltd.
-#
-# SPDX-License-Identifier: Apache-2.0
 #
 
 if BOARD_IMXRT1176_SOM

@@ -16,7 +16,7 @@ if(CONFIG_NXP_IMXRT_BOOT_HEADER)
       "update your flash configuration or device configuration data blocks")
   endif()
 
-
+  
   set(RT1170_BOARD_NAME "imxrt1176_som")
 
   if(CONFIG_BOOT_FLEXSPI_NOR OR CONFIG_BOOT_FLEXSPI_HYPER)

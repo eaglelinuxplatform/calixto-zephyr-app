@@ -1,8 +1,3 @@
-/*
- * Copyright 2026, Calixto Systems Pvt Ltd.
- *
- * SPDX-License-Identifier: Apache-2.0
- */
 
 /dts-v1/;
 
@@ -14,10 +9,16 @@
 	compatible = "nxp,mimxrt1176";
 
 	chosen {
-    zephyr,flash-controller = &w25q64jv;
-    zephyr,flash = &w25q64jv;
-    zephyr,sram = &ocram2;
+    zephyr,flash-controller = &is25fl128;
+    zephyr,flash = &is25fl128;
+    zephyr,sram = &sram1;
     nxp,m4-partition = &slot1_partition;
+	};
+
+	sdram0: memory@80000000 {
+		/* Winbond W9825G6KH-5I */
+		device_type = "memory";
+		reg = <0x80000000 DT_SIZE_M(16)>;
 	};
 };
 

@@ -1,7 +1,6 @@
 #
-# Copyright 2026, Calixto Systems Pvt Ltd.
 #
-# SPDX-License-Identifier: Apache-2.0
+#
 #
 
 identifier: imxrt1176_som/mimxrt1176/cm7
@@ -11,6 +10,7 @@ arch: arm
 toolchain:
   - zephyr
   - gnuarmemb
-ram: 16384
-flash: 8192
-vendor: calixto
+  - xtools
+ram: 256
+flash: 16384
+vendor: nxp

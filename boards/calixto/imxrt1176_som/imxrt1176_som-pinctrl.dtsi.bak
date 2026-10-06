@@ -1,16 +1,16 @@
 /*
- * Copyright (c) 2026, Calixto Systems Pvt Ltd
- * SPDX-License-Identifier: Apache-2.0
+ * 
  */
 
-#include <nxp/nxp_imx/rt/mimxrt1176cvm8a-pinctrl.dtsi>
+#include <nxp/nxp_imx/rt/mimxrt1176avm8a-pinctrl.dtsi>
 
 
 &pinctrl {
 
 	pinmux_flexspi1: pinmux_flexspi1 {
 		group0 {
-			pinmux =<&iomuxc_gpio_sd_b2_06_flexspi1_a_ss0_b>,
+			pinmux = <&iomuxc_gpio_sd_b2_05_flexspi1_a_dqs>,
+				<&iomuxc_gpio_sd_b2_06_flexspi1_a_ss0_b>,
 				<&iomuxc_gpio_sd_b2_07_flexspi1_a_sclk>,
 				<&iomuxc_gpio_sd_b2_08_flexspi1_a_data00>,
 				<&iomuxc_gpio_sd_b2_09_flexspi1_a_data01>,

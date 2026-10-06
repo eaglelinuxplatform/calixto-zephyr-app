@@ -1,3 +1,8 @@
+/*
+ * Copyright 2026, Calixto Systems Pvt Ltd.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
 
 /dts-v1/;
 
@@ -8,17 +13,17 @@
 	model = "Calixto imxrt1176 som";
 	compatible = "nxp,mimxrt1176";
 
-
-chosen {
-    zephyr,flash-controller = &is25fl128;
-    zephyr,flash = &is25fl128;
-    zephyr,code-partition = &slot0_partition;
-    zephyr,sram = &sdram0;
-	
-};
+	chosen {
+		zephyr,flash-controller = &w25q64jv;
+		zephyr,flash = &w25q64jv;
+		zephyr,code-partition = &slot0_partition;
+		zephyr,sram = &sdram0;
+		zephyr,dtcm = &dtcm;
+		zephyr,itcm = &itcm;
+	    zephyr,cpu1-region = &ocram;
+	};
 
 	sdram0: memory@80000000 {
-		/* Winbond W9812G6KB-6J */
 		device_type = "memory";
 		reg = <0x80000000 DT_SIZE_M(16)>;
 	};

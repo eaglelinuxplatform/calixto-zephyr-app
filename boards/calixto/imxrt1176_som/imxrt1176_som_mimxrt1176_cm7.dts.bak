@@ -1,0 +1,33 @@
+
+/dts-v1/;
+
+#include <nxp/nxp_rt11xx_cm7.dtsi>
+#include "imxrt1176_som.dtsi"
+
+/ {
+	model = "Calixto imxrt1176 som";
+	compatible = "nxp,mimxrt1176";
+
+
+chosen {
+    zephyr,flash-controller = &is25fl128;
+    zephyr,flash = &is25fl128;
+    zephyr,code-partition = &slot0_partition;
+    zephyr,sram = &sdram0;
+	
+};
+
+	sdram0: memory@80000000 {
+		/* Winbond W9812G6KB-6J */
+		device_type = "memory";
+		reg = <0x80000000 DT_SIZE_M(16)>;
+	};
+};
+
+&gpt_hw_timer {
+	status = "okay";
+};
+
+&systick {
+	status = "okay";
+};
